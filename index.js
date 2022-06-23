@@ -1,9 +1,14 @@
 const fs = require('fs');
 
+function generateString(length) {
+    for (var s=''; s.length < length; s += 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.charAt(Math.random()*62|0));
+    return s;
+  }
+
 const generateData = async () => {
     let object = {}
     for (let x = 0; x < 500; x++) {
-        let randomName = Buffer.from(Math.random().toString()).toString("base64").substring(10, 5);
+        let randomName = generateString(6);
         let arrayOfHours = [];
 
         let amountOfPosts = Math.ceil(Math.random() * 3)
